@@ -1,4 +1,3 @@
-// You will use this Object for the answers
 // DO NOT CHANGE THIS SECTION
 var adventuringParty = {
     wizard: {
@@ -26,79 +25,54 @@ var adventuringParty = {
     }
 }
 
-// MAKE CHANGES AFTER THIS
-
- var wizard = adventuringParty.wizard.name;
- var warrior = adventuringParty.warrior.name;
- var Staff = adventuringParty.wizard.weapons.name;
- var Axe = adventuringParty.warrior.weapons.name;
-
-
- 
-
 // This function lists all characters in the party
+var wizard = adventuringParty.wizard;
+var warrior = adventuringParty.warrior;
 function listCharacters(adventuringParty) {
     console.log("Characters:");
-    for(wizard in adventuringParty) {
-        console.log(" * " + adventuringParty[wizard].name);
+    var i;
+    for (i in adventuringParty) {
+        console.log(" * " + adventuringParty[i].name);
     }
-  
-    
 }
+
+
 
 
 // This function should list all weapons for the character
-function listWeapons(wizard) {
-    console.log("Listing weapons for " + adventuringParty.wizard.name + ":");
-    for(i in adventuringParty ) {
-        var weapon = adventuringParty.wizard.weapons.name;
-        console.log(" * " + adventuringParty.wizard[weapons].name);
+function listWeapons(character) {
+    console.log("Listing weapons for " + character.name + ":");
+    for(i in character.weapons) {
+        var weapon = character.weapons[i];
+        console.log(" * " + weapon.name);
     }
 }
 
-function weaponsList(warrior) {
-    console.log("Listing weapons for " + adventuringParty.warrior.name + ":");
-    for(i in warrior.weapons) {
-        var weapons = adventuringParty.warrior.weapons[i];
-        console.log(" * " + adventuringParty.wizard.weapons);
-    }
-}
+
 
 // This function should attack with the specified weapon
 // It uses the weapon damage from the object to determine the maximum damage of this weapon
-function weaponAttack(wizard, Staff) {
-    console.log(adventuringParty.wizard.name + " attacks with his " + adventuringParty.wizard.weapons[0].name);
-    var maxDamage = adventuringParty.wizard.weapons[0].damage;
-    for(i in wizard.weapons) {
-        var weapon = adventuringParty.wizard.weapons;
-        if(weapon.name == Staff.toUpperCase()) {
-           
+function weaponAttack(character, weaponName) {
+    console.log(character.name + " attacks with his " + weaponName);
+    for(i in character.weapons) {
+        var weapon = character.weapons[i];
+         if(weapon.name.toUpperCase() == weaponName.toUpperCase()) {
+         var maxDamage = weapon.damage;
         }
     }
-    console.log("He hits for " + Math.round( Math.random() * maxDamage ) + " damage");
+    console.log("He hits for " + Math.round(Math.random()*maxDamage) + " damage");
 }
 
-function weapon(warrior, Axe) {
-    console.log(adventuringParty.warrior.name + " attacks with his " + adventuringParty.warrior.weapons[0].name);
-    var maxDamage = adventuringParty.warrior.weapons[0].damage;
-    for(i in warrior.weapons) {
-        var weapon = adventuringParty.warrior.weapons[i];
-        if(weapon.name == Axe.toUpperCase()) {
-         
-        }
-    }
-    console.log("He hits for " + Math.round(Math.random() * maxDamage ) + " damage");
-}
+
+
+
 
 // Run the functions
 listCharacters(adventuringParty);
 listWeapons(wizard);
-weaponsList(warrior);
-weaponAttack(wizard, Staff);
-weapon(warrior, Axe);
-
-
-
+listWeapons(warrior);
+weaponAttack(warrior, "Axe");
+weaponAttack(wizard, "Staff");
 
 
 /*
@@ -116,6 +90,6 @@ Listing weapons for Conan:
  * Bow                                                                                                                                                                                                       
 Conan attacks with his axe                                                                                                                                                                                   
 He hits for 17 damage                                                                                                                                                                                        
-Gandalf attacks with his STAFF    
-He hits for 3 damage
-*/                                                                                                     
+Gandalf attacks with his STAFF                                                                                                                                                                               
+He hits for 3 damage         
+*/
